@@ -22,4 +22,11 @@ def parseArgs() -> Namespace:
     )
     parser.add_argument(
         "--format", choices=["text", "json"], default="text", help="Tipo de Saída")
+
+    parser.add_argument(
+        "--engine",
+        choices=["builtin", "pandas"],
+        default="builtin",
+        help="Engine de processamento: builtin (padrão) ou pandas"
+    )
     return parser.parse_args()

@@ -1,4 +1,5 @@
 import json
+from vendas_cli import pandas_main
 from .parser import parseArgs
 from .core import (
     loadCsv,
@@ -13,6 +14,10 @@ from .core import (
 
 def main():
     args = parseArgs()
+
+    if args.engine == "pandas":
+        return pandas_main.executar_relatorio(args)
+
     dados = loadCsv(args.csv_path)
     dados = filtrarPorData(dados, args.start, args.end)
 
