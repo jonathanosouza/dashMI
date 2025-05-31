@@ -1,66 +1,120 @@
-# 🛒 vendas-cli
+# 📊 Vendas CLI – Relatório de Vendas Mirante
 
-**vendas-cli** é uma ferramenta de linha de comando para geração de relatórios de vendas.  
-Ela permite calcular totais por produto, totais gerais, quantidade de SKUs, produto mais vendido e muito mais — tudo via terminal e com suporte a filtros por data e saída em formato texto ou JSON.
+Um gerador de relatórios de vendas via linha de comando, desenvolvido em Python, com suporte a filtros, formatos e métricas úteis.
+
+---
+
+## ✅ Funcionalidades
+
+- Total por produto vendido  
+- Valor total de vendas  
+- Total de itens vendidos  
+- Contagem de SKUs distintos  
+- Produto mais vendido  
+- Filtros por data  
+- Saída em formato `text` (tabela) ou `json`
 
 ---
 
 ## 🚀 Instalação
 
-Clone o repositório e instale com:
+Clone o repositório:
 
 ```bash
-git clone https://github.com/seuusuario/vendas-cli.git
-cd vendas-cli
+git clone https://github.com/jonathanosouza/dashMI.git
+cd mirante
+```
+
+Crie e ative um ambiente virtual:
+
+```bash
+python -m venv venv
+# Windows:
+venv\Scripts\activate
+# macOS/Linux:
+source venv/bin/activate
+```
+
+Instale o pacote localmente:
+
+```bash
+cd vendas_cli
 pip install .
+```
 
+---
 
-vendas-cli data/vendasexemplo-python.csv --calc tudo --format text
+## ▶️ Execute pela linha de comando
 
+```bash
+python -m vendas_cli data/vendasexemplo-python.csv --calc tudo --format text
+```
 
-⚙️ Parâmetros disponíveis
-Parâmetro	Descrição
-csv_path	Caminho para o arquivo CSV de vendas
---calc	Cálculo: total_produto, total_geral, itens, sku, mais_vendido, tudo
---start	Data inicial do filtro (opcional) - YYYY-MM-DD
---end	Data final do filtro (opcional) - YYYY-MM-DD
---format	text para tabela formatada ou json para estrutura JSON
+---
 
-ℹ️ Por padrão, se nenhum --calc for informado, será usado tudo.
+## 🔧 Parâmetros disponíveis
 
-📊 Exemplos de uso
-bash
-Copiar
-Editar
-# Tudo em formato JSON
-vendas-cli data/vendasexemplo-python.csv --format json
+| Parâmetro     | Descrição |
+|---------------|-----------|
+| `csv_path`    | Caminho para o arquivo CSV de vendas |
+| `--calc`      | Tipo de cálculo: `total_produto`, `total_geral`, `itens`, `sku`, `mais_vendido`, `tudo` |
+| `--start`     | Data inicial no formato `YYYY-MM-DD` (opcional) |
+| `--end`       | Data final no formato `YYYY-MM-DD` (opcional) |
+| `--format`    | Tipo de saída: `text` ou `json` |
 
-# Total por produto (texto)
-vendas-cli data/vendasexemplo-python.csv --calc total_produto --format text
+---
 
-# Total geral (JSON)
-vendas-cli data/vendasexemplo-python.csv --calc total_geral --format json
+## 💡 Exemplos de uso
 
-# Tudo com filtro por data
-vendas-cli data/vendasexemplo-python.csv --calc tudo --start 2024-01-01 --end 2024-03-31
+###  Output padrão que gera todas as informações
 
+```bash
+python -m vendas_cli data/vendasexemplo-python.csv --format json
+python -m vendas_cli data/vendasexemplo-python.csv --format text
+```
 
-Na pasta raiz do projeto (MIRANTE), execute:
+### Executa tudo com saída formatada em texto
 
-bash
-Copiar
-Editar
+```bash
+python -m vendas_cli data/vendasexemplo-python.csv --calc tudo --format text
+```
+
+### Apenas total por produto (tabela)
+
+```bash
+python -m vendas_cli data/vendasexemplo-python.csv --calc total_produto --format text
+```
+
+### Total geral de vendas em JSON
+
+```bash
+python -m vendas_cli data/vendasexemplo-python.csv --calc total_geral --format json
+```
+
+### Tudo com filtro de data
+
+```bash
+python -m vendas_cli data/vendasexemplo-python.csv --calc tudo --start 2024-01-01 --end 2024-03-31
+```
+
+---
+
+## Testes com Pytest
+
+### Para executar os testes automatizados com `pytest` na pasta raiz `mirante`:
+
+```bash
 pytest test/mirante_teste.py
-Ou para rodar todos os testes:
+```
 
-bash
-Copiar
-Editar
+### Ou simplesmente:
+
+```bash
 pytest
+```
 
+---
 
-👨‍💻 Autor
-Jonathan de Oliveira Souza Filho
-Golamp Tecnologia
-https://golamp.com.br
+## 👨‍💻 Autor
 
+**Jonathan de Oliveira Souza Filho** – Para Mirante Tecnologia 🚀
