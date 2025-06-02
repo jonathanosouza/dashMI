@@ -61,6 +61,7 @@ python -m vendas_cli data/vendasexemplo-python.csv --calc tudo --format text
 | `--start`     | Data inicial no formato `YYYY-MM-DD` (opcional) |
 | `--end`       | Data final no formato `YYYY-MM-DD` (opcional) |
 | `--format`    | Tipo de saída: `text` ou `json` |
+| `--engine`    | Tipo de saída: `text` ou `json porém com pandas` |
 
 ---
 
